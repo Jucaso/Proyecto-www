@@ -78,7 +78,7 @@ export default function Inicio(){
         </table>
                 </div>
                 <div className="card-footer text-muted">
-                    @Copyright Jucaso 2022
+                    @Copyright 2022
                 </div>
             </div>
     )

@@ -110,7 +110,7 @@ export default function Crear(){
 
             <div className="btn-group" role="group" aria-label="">
                 <button type="submit" className="btn btn-success">Crear beca</button>
-                <Link to={"/"} className="btn btn-primary">Cancelar</Link>
+                <Link to={"/listar"} className="btn btn-primary">Cancelar</Link>
             </div>
         </form>
     </div>
