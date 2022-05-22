@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+import card from "./card.css"
 import '../App.css';
-import Card from './card';
-import Carousel from 'react-bootstrap/Carousel';
+
+import {Carousel, Col, Row, Card, Spinner } from 'react-bootstrap';
 
 export default function Inicio(){
     const [becas, setBecas] = useState([]);
     const [noticias,setNoticias] = useState([]);
+    const [loading, setLoading] = useState(true)
     //loadData();
     useEffect(() => {
         loadData();
@@ -32,40 +35,80 @@ function loadData2(){
        // console.log(data);
         //console.log(data_media);
         console.log(data_results);
-        setNoticias(data_results);
+        setThree(data_results);
+        setLoading(false)
     }) // Especifica qué se hará con la información traida de la API (data)
     .catch(console.log) // Excepción en caso de fallo
 }
 
+function setThree(news){
+    var temp = []
+    for(let i=0; i<28; i++){
+        var aux = news[i];
+        //console.log("aux:",aux);
+        temp.push(aux);
+    }
+    //console.log(temp);
+    setNoticias(temp);
+}
+
+
 return ( 
     <div className="Cardsytle">
-        <Carousel>
-        {noticias.map(noticia =>(
-                <Carousel.Item key={noticia.uri} interval={1500}>
-                    <img
-                    className="d-block w-100"   
-                    src="https://static01.nyt.com/newsgraphics/images/icons/defaultPromoCrop.png"
-                    />
-                    <Carousel.Caption>
-                        <h3>{noticia.title}</h3>
-                        <p>{noticia.abstract}</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                ))}
-            </Carousel>
-        <div className="container">
-            
-            <div className="row gy-2">
-                {
-                    becas.map(beca =>(
-                        <div className="col-md-4" key={beca.id}>
-                        <Card title={beca.nombre} cat={beca.categoria} fin={beca.financiacion} uni={beca.universidad}/>
-                        </div>
-                    ))
-                }
-            </div>  
-    </div>
- </div>
+        {loading ? 
+        
+        (<div className="d-flex justify-content-center">
+            <Spinner animation="border" />
+        </div>)
+        
+        :
+        (
+            <Card>
+                <Card.Header>Becas populares</Card.Header>
+                <Card.Body>
+                    
+                    <div className="container">          
+                        <div className="row gy-2">                              
+                            <Row xs={1} md={3} className="g-4">
+                                {becas.map((beca) => (                   
+                                <Col>
+                                <Card className="cardHeight">
+                                    <Card.Img variant="top" src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/03/12152234/universidad-yale-1.jpg" />
+                                    <Card.Body>
+                                    <Card.Title>{beca.nombre}</Card.Title>
+                                    <Card.Text>
+                                        {beca.categoria}
+                                    </Card.Text>
+                                    <Link className="btn btn-primary" variant="primary" to={"/becaDetalle/"+beca.id}>Conocer más</Link>
+                                    </Card.Body>
+                                </Card>
+                                </Col>               
+                            ))}
+                            </Row>                             
+                        </div>  
+                    </div>
+            </Card.Body>
+            <Card.Footer>
+                <Carousel>
+                    {noticias.map(noticia =>(
+                            <Carousel.Item key={noticia.uri} interval={1500}>
+                                <img
+                                className="d-block w-100"   
+                                src={noticia.multimedia[0].url}
+                                />
+                                <Carousel.Caption>
+                                    <h3>{noticia.title}</h3>
+                                    <p>{noticia.abstract}</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            ))}
+                </Carousel>
+            </Card.Footer>
+        </Card>
+        )}
+        </div>
+        
+    
     
 );
 }

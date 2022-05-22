@@ -3,6 +3,7 @@ import Inicio from './components/inicio'
 import Listar from './components/listar'
 import Editar from './components/editar'
 import Crear from './components/crear'
+import BecaDetalle from './components/becaDetalle'
 import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/listar" element={<Listar/>}/>
           <Route path="/crear" element={<Crear/>}/>
           <Route path="/editar/:id" element={<Editar/>}/>
+          <Route path="/becaDetalle/:id" element={<BecaDetalle/>}/>
         </Routes>
       </div>
       </Router>
