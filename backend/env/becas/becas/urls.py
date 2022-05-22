@@ -17,14 +17,16 @@ from becasApp import views
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token    
 
 
 router = routers.DefaultRouter()
 router.register('beca', views.BecaViewSet)
-#router.register(r'users', views.UserViewSet)
+router.register('users', views.UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('auth/', obtain_auth_token)
 ]

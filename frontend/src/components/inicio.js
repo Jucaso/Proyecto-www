@@ -17,7 +17,9 @@ export default function Inicio(){
 
 function loadData(){
     //console.log("Imprime datos");
-    fetch("http://127.0.0.1:8000/beca/" ) // Solicitud de datos a la API
+    fetch("http://127.0.0.1:8000/beca/",{
+        headers: {'Authorization': "Token ad296e60f6a42d61b9f5264923df832da9cd7b7d"}
+    } ) // Solicitud de datos a la API
     .then(response => response.json()) // Solicita la información en formato json
     .then((data)=>{
         //console.log(data);
@@ -71,8 +73,8 @@ return (
                         <div className="row gy-2">                              
                             <Row xs={1} md={3} className="g-4">
                                 {becas.map((beca) => (                   
-                                <Col>
-                                <Card className="cardHeight">
+                                <Col key={beca.id}>
+                                <Card className="cardHeight" >
                                     <Card.Img variant="top" src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/03/12152234/universidad-yale-1.jpg" />
                                     <Card.Body>
                                     <Card.Title>{beca.nombre}</Card.Title>

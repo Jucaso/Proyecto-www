@@ -12,7 +12,9 @@ export default function Inicio(){
 
     function loadData(){
         //console.log("Imprime datos");
-        fetch("http://127.0.0.1:8000/beca/" ) // Solicitud de datos a la API
+        fetch("http://127.0.0.1:8000/beca/",{
+            headers: {'Authorization': "Token ad296e60f6a42d61b9f5264923df832da9cd7b7d"}
+        } ) // Solicitud de datos a la API
         .then(response => response.json()) // Solicita la información en formato json
         .then((data)=>{
             console.log(data);
@@ -27,6 +29,7 @@ export default function Inicio(){
           method:'DELETE',
           headers:{
             'Content-type':'application/json',
+            'Authorization': "Token ad296e60f6a42d61b9f5264923df832da9cd7b7d"
             //'X-CSRFToken':csrftoken,
           },
         }).then(() =>{  
