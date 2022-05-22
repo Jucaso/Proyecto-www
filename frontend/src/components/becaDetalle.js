@@ -36,10 +36,9 @@ export default function BecaDetalle(){
     }
     
     return (
-        <Card>
+        <Card className="bg-dark text-white">
             <Card.Header>Información de la beca</Card.Header>
                 <Card.Body>
-                    <Card.Img variant="top" src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/03/12152234/universidad-yale-1.jpg"/>
                     <Card.Title>{nombre}</Card.Title>
                     <Card.Text>
                     Categoría: {categoria}                                     
@@ -57,6 +56,7 @@ export default function BecaDetalle(){
                     Requerimientos: {requerimientos}                                     
                     </Card.Text>  
                 </Card.Body>
+                <Card.Img variant="bottom" src="https://www.univalle.edu.co/media/k2/items/cache/f5b95525832f3712e665bb57dba370d3_M.jpg"/>
         </Card>
     )
 }

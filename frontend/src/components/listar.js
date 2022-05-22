@@ -38,13 +38,13 @@ export default function Inicio(){
     }
 
     return (
-        <div className="card">
+        <div className="card bg-dark">
                 <div className="card-header">
                     <Link className="btn btn-success" to={"/crear"}>Crear beca</Link>
                 </div>
                 <div className="card-body">
                 <table className="table">
-            <thead>
+            <thead className='text-white'>
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
@@ -55,7 +55,7 @@ export default function Inicio(){
                     <th>Requerimientos</th> 
                 </tr>
             </thead>
-            <tbody>
+            <tbody className='text-white'>
                 {becas.map(
                     (beca) => (
                         <tr key={beca.id}>
