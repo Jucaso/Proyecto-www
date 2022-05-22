@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from "react-router-dom";
+import {useCookies} from 'react-cookie';
 
 
 export default function Crear(){
@@ -12,6 +13,7 @@ export default function Crear(){
     const [pais, setPais] = useState("");
     const [universidad, setUniversidad] = useState("");
     const [requerimientos, setRequerimientos] = useState("");
+    const[token] = useCookies(['mytoken']);
 
     // Handlers
     function handleChangeName(e) {  
@@ -53,14 +55,15 @@ export default function Crear(){
             method: "POST",
             headers: {
                 //'Accept': 'application/json',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json',          
+                    headers: {'Authorization': "Token " + token['mytoken']}           
                 //'X-CSRFToken':csrftoken,
             },
             body:JSON.stringify(dataToSend)
         }) // Solicitud de datos a la API
         .then(response => response.json()) // Solicita la información en formato json
         .then((data)=>{
-            console.log("Data updated succesfully:",data);
+            //console.log("Data updated succesfully:",data);
             navigate('/');
             //this.props.history.push('/');           
         }) // Especifica qué se hará con la información traida de la API (data)
@@ -117,6 +120,7 @@ export default function Crear(){
     <div className="card-footer text-muted">
         @Copyright 2022
     </div>
+    
 </div>  );
     
 }

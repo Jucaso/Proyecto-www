@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
+import {useCookies} from 'react-cookie';
 
 export default function Inicio(){
     const [becas, setBecas] = useState([]);
+    const[token] = useCookies(['mytoken']);
     //loadData();
     useEffect(() => {
         loadData();
@@ -13,11 +15,11 @@ export default function Inicio(){
     function loadData(){
         //console.log("Imprime datos");
         fetch("http://127.0.0.1:8000/beca/",{
-            headers: {'Authorization': "Token ad296e60f6a42d61b9f5264923df832da9cd7b7d"}
+            headers: {'Authorization': "Token " + token['mytoken']}
         } ) // Solicitud de datos a la API
         .then(response => response.json()) // Solicita la información en formato json
         .then((data)=>{
-            console.log(data);
+            //console.log(data);
             setBecas(data);
         }) // Especifica qué se hará con la información traida de la API (data)
         .catch(console.log) // Excepción en caso de fallo
@@ -29,7 +31,7 @@ export default function Inicio(){
           method:'DELETE',
           headers:{
             'Content-type':'application/json',
-            'Authorization': "Token ad296e60f6a42d61b9f5264923df832da9cd7b7d"
+            'Authorization': "Token " + token['mytoken']
             //'X-CSRFToken':csrftoken,
           },
         }).then(() =>{  

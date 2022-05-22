@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from "react-router-dom";
+import {useCookies} from 'react-cookie';
 
 
 export default function Editar(){
@@ -12,6 +13,7 @@ export default function Editar(){
     const [pais, setPais] = useState("");
     const [universidad, setUniversidad] = useState("");
     const [requerimientos, setRequerimientos] = useState("");
+    const[token] = useCookies(['mytoken']);
 
     useEffect(() => {
         loadInfo();
@@ -19,7 +21,9 @@ export default function Editar(){
 
     async function loadInfo(){
         try {
-            const request = await fetch("http://127.0.0.1:8000/beca/"+id+"/");
+            const request = await fetch("http://127.0.0.1:8000/beca/"+id+"/",{
+                headers: {'Authorization': "Token " + token['mytoken']}
+            });
             const json = await request.json();
             setNombre(json.nombre);
             setCategoria(json.categoria);
@@ -27,7 +31,7 @@ export default function Editar(){
             setPais(json.pais);
             setUniversidad(json.universidad);
             setRequerimientos(json.requerimientos);
-            console.log(json);
+            //console.log(json);
         } catch (error) {
             console.log(error);
         }
@@ -73,6 +77,8 @@ export default function Editar(){
             headers: {
                 //'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': "Token " + token['mytoken'],
+
                 //'X-CSRFToken':csrftoken,
             },
             body:JSON.stringify(dataToSend)

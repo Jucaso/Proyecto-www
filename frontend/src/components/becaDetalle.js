@@ -21,7 +21,9 @@ export default function BecaDetalle(){
 
     async function loadInfo(){
         try {
-            const request = await fetch("http://127.0.0.1:8000/beca/"+id+"/");
+            const request = await fetch("http://127.0.0.1:8000/beca/"+id+"/",{
+                headers: {'Authorization': "Token ad296e60f6a42d61b9f5264923df832da9cd7b7d"}
+            });
             const json = await request.json();
             setNombre(json.nombre);
             setCategoria(json.categoria);
@@ -29,7 +31,7 @@ export default function BecaDetalle(){
             setPais(json.pais);
             setUniversidad(json.universidad);
             setRequerimientos(json.requerimientos);
-            console.log(json);
+            //console.log(json);
         } catch (error) {
             console.log(error);
         }
