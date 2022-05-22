@@ -31,7 +31,7 @@ function loadData2(){
     .then(response => response.json()) // Solicita la información en formato json
     .then((data)=>{
         let data_results = data.results;
-        let data_media = data.results[0][8];
+
        // console.log(data);
         //console.log(data_media);
         console.log(data_results);
@@ -63,48 +63,58 @@ return (
         
         :
         (
-            <Card>
-                <Card.Header>Becas populares</Card.Header>
+        <div className='container'>
+            <div className='row'>
+                <div className='col'>
+            <Card className="bg-dark">
+                <Card.Header className="text-white">Becas populares</Card.Header>
                 <Card.Body>
-                    
-                    <div className="container">          
                         <div className="row gy-2">                              
                             <Row xs={1} md={3} className="g-4">
                                 {becas.map((beca) => (                   
-                                <Col>
-                                <Card className="cardHeight">
-                                    <Card.Img variant="top" src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/03/12152234/universidad-yale-1.jpg" />
-                                    <Card.Body>
-                                    <Card.Title>{beca.nombre}</Card.Title>
-                                    <Card.Text>
+                                <Col key={beca.id}>
+                                <Card className="cardHeight text-center text-white bg-secondary" >
+                                    <Card.Img variant="top" src="https://www.univalle.edu.co/media/k2/items/cache/f5b95525832f3712e665bb57dba370d3_M.jpg" />
+                                    <Card.Body className="d-flex flex-column">
+                                    <Card.Title variant="dark" className="mb-auto mt-auto">{beca.nombre}</Card.Title>
+                                    <Card.Text className="mt-auto d-inline-block">
                                         {beca.categoria}
                                     </Card.Text>
-                                    <Link className="btn btn-primary" variant="primary" to={"/becaDetalle/"+beca.id}>Conocer más</Link>
+                                    <Link className="btn btn-dark mt-auto" variant="primary" to={"/becaDetalle/"+beca.id}>Conocer más</Link>
                                     </Card.Body>
                                 </Card>
                                 </Col>               
                             ))}
                             </Row>                             
                         </div>  
-                    </div>
             </Card.Body>
-            <Card.Footer>
-                <Carousel>
-                    {noticias.map(noticia =>(
-                            <Carousel.Item key={noticia.uri} interval={1500}>
-                                <img
-                                className="d-block w-100"   
-                                src={noticia.multimedia[0].url}
-                                />
-                                <Carousel.Caption>
-                                    <h3>{noticia.title}</h3>
-                                    <p>{noticia.abstract}</p>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-                            ))}
-                </Carousel>
-            </Card.Footer>
         </Card>
+        </div>
+        <div className='col-4'>
+        <Card className='bg-dark text-white'>
+        <Card.Header>Sección de noticias</Card.Header>
+            <Carousel>
+            {noticias.map(noticia =>(
+                    <Carousel.Item key={noticia.uri} interval={1800}>
+                        <a href={noticia.url} target="_blank">
+                        <img
+                        className="d-block w-100"   
+                        src={noticia.multimedia[0].url}
+                        /></a>
+                        <Carousel.Caption >
+                            <h3 className="fw-bolder fs-5">{noticia.title}</h3>
+                            <p className="badge bg-dark text-wrap">{noticia.abstract}</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    ))}
+        </Carousel>
+        <Card.Footer className='text-muted'>
+            Fuente: New York Times.
+        </Card.Footer>
+        </Card>
+        </div>
+        </div>
+        </div>
         )}
         </div>
         

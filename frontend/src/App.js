@@ -9,8 +9,8 @@ import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <Router>
-        <nav className="navbar navbar-expand navbar-light bg-light">
-          <ul className="nav navbar-nav">
+        <nav className="navbar navbar-expand navbar-dark bg-dark">
+          <ul className="nav navbar-nav mx-auto">
               <li className="nav-item">
                   <Link className="nav-link" to={"/inicio"}>Inicio <span className="visually-hidden">(current)</span></Link>
               </li>
