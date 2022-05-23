@@ -1,6 +1,7 @@
 import { Card, Row, Col, Button } from 'react-bootstrap'
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from "react-router-dom";
+import {useCookies} from 'react-cookie';
 
 
 
@@ -14,6 +15,7 @@ export default function BecaDetalle(){
     const [pais, setPais] = useState("");
     const [universidad, setUniversidad] = useState("");
     const [requerimientos, setRequerimientos] = useState("");
+    const[token, setToken] = useCookies(['mytoken']);
 
     useEffect(() => {
         loadInfo();
@@ -22,7 +24,7 @@ export default function BecaDetalle(){
     async function loadInfo(){
         try {
             const request = await fetch("http://127.0.0.1:8000/beca/"+id+"/",{
-                headers: {'Authorization': "Token ad296e60f6a42d61b9f5264923df832da9cd7b7d"}
+                headers: {'Authorization': "Token " + token['mytoken']}
             });
             const json = await request.json();
             setNombre(json.nombre);
