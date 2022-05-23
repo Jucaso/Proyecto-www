@@ -91,7 +91,7 @@ export default function Editar(){
         }) // Especifica qué se hará con la información traida de la API (data)
         .catch(console.log)
     }
-    return ( <div className="card">
+    return ( <div className="card scroll2 mt-5">
     <div className="card-header">
         Editar beca
     </div>

@@ -1,8 +1,17 @@
 #root{
   /* text-align: center; */
-  background: rgb(138,0,0);
-  background: linear-gradient(90deg, rgba(138,0,0,1) 0%, rgba(140,0,0,1) 35%, rgba(108,0,0,1) 100%);
-  height: 100vmax;
+  background-color: #dadada;
+background-image: linear-gradient(0deg, #dadada 0%, #747474 50%, #333333 100%);
+
+
+
+  
+
+
+  
+  min-height: 100vh;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .App-logo {
@@ -42,4 +51,54 @@
   to {
     transform: rotate(360deg);
   }
+}
+/*Scrollbarrrrrrr cusstommmmmmmm*/
+
+.scroll::-webkit-scrollbar{
+  width: 10px;
+  height: 1em;
+}
+
+
+.scroll::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0);
+  border: 0.25em solid rgb(0, 0, 0);
+  border-radius: 100vw;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(129, 129, 129);
+}
+
+
+.scroll {
+  max-height: 500px;
+  overflow-y: auto;
+  
+}
+
+/* scrollbar gestion*/
+.scroll2::-webkit-scrollbar{
+  width: 5px;
+  height: 1em;
+}
+
+
+.scroll2::-webkit-scrollbar-thumb {
+  background: rgb(54, 54, 54);
+  border: 0.25em solid rgb(46, 46, 46);
+  border-radius: 100vw;
+}
+
+.scroll2::-webkit-scrollbar-thumb:hover {
+  background: rgb(129, 129, 129);
+}
+.scroll2{
+  max-height: 500px;
+  overflow-y: auto;
+  
+}
+
+.navbar-custom {
+  background-color: #131313;
 }

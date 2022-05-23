@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {useCookies} from 'react-cookie';
 import { Link } from "react-router-dom";
-import card from "./css/card.css"
+import "./css/card.css"
 import '../App.css';
 
 import {Carousel, Col, Row, Card, Spinner } from 'react-bootstrap';
@@ -70,15 +70,15 @@ return (
         (
         <div className='container'>
             <div className='row'>
-                <div className='col'>
-            <Card className="bg-dark">
-                <Card.Header className="text-white">Becas populares</Card.Header>
+                <div className='col mt-1'>
+            <Card className="cardbackgroundcolor2">
+                <Card.Header className=" cardbackgroundcolor text-white">Becas populares</Card.Header>
                 <Card.Body>
-                        <div className="row gy-2">                              
+                        <div className="row gy-2 scroll">                              
                             <Row xs={1} md={3} className="g-4">
                                 {becas.map((beca) => (                   
                                 <Col key={beca.id}>
-                                <Card className="cardHeight text-center text-white bg-secondary" >
+                                <Card className="cardHeight text-center text-white cardbackgroundcolor becascard" >
                                     <Card.Img variant="top" src="https://www.univalle.edu.co/media/k2/items/cache/f5b95525832f3712e665bb57dba370d3_M.jpg" />
                                     <Card.Body className="d-flex flex-column">
                                     <Card.Title variant="dark" className="mb-auto mt-auto">{beca.nombre}</Card.Title>
@@ -95,10 +95,10 @@ return (
             </Card.Body>
         </Card>
         </div>
-        <div className='col-4'>
-        <Card className='bg-dark text-white'>
+        <div className='col-4 mt-1'>
+        <Card className='cardbackgroundcolor text-white'>
         <Card.Header>Sección de noticias</Card.Header>
-            <Carousel>
+            <Carousel className='h-100'>
             {noticias.map(noticia =>(
                     <Carousel.Item key={noticia.uri} interval={1800}>
                         <a href={noticia.url} target="_blank">
