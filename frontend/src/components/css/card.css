@@ -10,10 +10,18 @@
   background-color: #000000 !important;
 }
 .cardbackgroundcolor2{
-  background-color: #7c7c7c00 !important;
+  background-color: #7c7c7c00 !important; /*transparente*/
   text-align: center;
 }
-
+.ListGroupItem{
+  background-color: transparent !important;
+  border-top: 1px solid #ddd;
+  border-radius: 0;
+  color: #fff;
+  }
+.cardwidth{
+  height: 100%   !important;
+}
 /* .overflow {
   overflow: hidden;
 } */
