@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import {useCookies} from 'react-cookie';
 
 
 export default function Crear(){
-    const {id} = useParams();
     let navigate = useNavigate();
     //console.log("id:",id);
     const [nombre, setNombre] = useState("");
@@ -40,7 +39,7 @@ export default function Crear(){
         setRequerimientos(e.target.value);
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         //console.log("Formulario enviado");
         //console.log(this.state.nombre);
@@ -51,20 +50,21 @@ export default function Crear(){
                          pais: pais, 
                          universidad: universidad, 
                          requerimientos: requerimientos}
+
         fetch("http://127.0.0.1:8000/beca/",{
-            method: "POST",
+            method  : "POST",
             headers: {
-                //'Accept': 'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',          
-                    headers: {'Authorization': "Token " + token['mytoken']}           
+                'Authorization': "Token " + token['mytoken']          
                 //'X-CSRFToken':csrftoken,
             },
             body:JSON.stringify(dataToSend)
         }) // Solicitud de datos a la API
         .then(response => response.json()) // Solicita la información en formato json
         .then((data)=>{
-            //console.log("Data updated succesfully:",data);
-            navigate('/');
+            console.log("Data updated succesfully:",data);
+            navigate('/listar');
             //this.props.history.push('/');           
         }) // Especifica qué se hará con la información traida de la API (data)
         .catch(console.log)
