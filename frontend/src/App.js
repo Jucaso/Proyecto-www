@@ -42,7 +42,7 @@ function App() {
             </ul>
             <ul className="nav navbar-nav">
             <li className="nav-item active">
-                <a name="" id="" className="btn btn-dark" href="/login" role="button" onClick={logout}>Cerrar sesión</a>
+                <a name="" id="" className="btn btn-dark" href="/" role="button" onClick={logout}>Cerrar sesión</a>
             </li>
         </ul>
       </nav>
@@ -54,7 +54,7 @@ function App() {
             <Route path="/crear" element={<Crear/>}/>
             <Route path="/editar/:id" element={<Editar/>}/>
             <Route path="/becaDetalle/:id" element={<BecaDetalle/>}/>
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/" element={<Login/>}/>
           </Routes>
         </div>
         </Router> 
@@ -68,7 +68,7 @@ function App() {
             <Route path="/crear" element={<Crear/>}/>
             <Route path="/editar/:id" element={<Editar/>}/>
             <Route path="/becaDetalle/:id" element={<BecaDetalle/>}/>
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/" element={<Login/>}/>
           </Routes>
         </div> 
         </Router> 
