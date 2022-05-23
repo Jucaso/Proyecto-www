@@ -55,7 +55,9 @@ export default function BecaDetalle(){
                         <ListGroupItem className='bg-transparent text-white'>País: {pais}</ListGroupItem>
                         <ListGroupItem className='bg-transparent text-white'>Universidad: {universidad}</ListGroupItem>
                         <ListGroupItem className='bg-transparent text-white'>Requerimientos: {requerimientos}</ListGroupItem>
-                    </ListGroup>   
+                        <Link className="btn btn-dark mt-auto mx-1" variant="primary" to={"/inicio/"}>Volver</Link>
+                    </ListGroup>
+                       
                     </Card.Body>
                     </div>
             </div>
