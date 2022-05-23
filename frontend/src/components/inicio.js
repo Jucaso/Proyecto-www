@@ -96,14 +96,14 @@ return (
         </Card>
         </div>
         <div className='col-4 mt-1'>
-        <Card className='cardbackgroundcolor text-white'>
+        <Card className='cardbackgroundcolor text-white text-center'>
         <Card.Header>Sección de noticias</Card.Header>
-            <Carousel className='h-100'>
+            <Carousel className='CarouselX'>
             {noticias.map(noticia =>(
-                    <Carousel.Item key={noticia.uri} interval={1800}>
+                    <Carousel.Item className='ItemX' key={noticia.uri} interval={1800}>
                         <a href={noticia.url} target="_blank">
                         <img
-                        className="d-block w-100"   
+                        className="d-block w-100 h-50"   
                         src={noticia.multimedia[0].url}
                         /></a>
                         <Carousel.Caption >
@@ -113,7 +113,7 @@ return (
                     </Carousel.Item>
                     ))}
         </Carousel>
-        <Card.Footer className='text-muted'>
+        <Card.Footer className='text-muted fst-italic'>
             Fuente: New York Times.
         </Card.Footer>
         </Card>

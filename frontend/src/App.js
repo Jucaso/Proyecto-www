@@ -31,13 +31,13 @@ function App() {
 
       (token['mytoken'] ? (  
         <Router>    
-        <nav className="navbar navbar-expand navbar-dark text-white  navbar-custom" >
+        <nav className="navbar navbar-expand navbar-custom" >
         <ul className="nav navbar-nav mx-auto">
             <li className="nav-item">
-                <Link className="nav-link" to={"/inicio"}>Inicio <span className="visually-hidden">(current)</span></Link>
+                <Link className="nav-link text-white" to={"/inicio"}>Inicio <span className="visually-hidden">(current)</span></Link>
             </li>
             <li className="nav-item active">
-                <Link className="nav-link" to={"/listar"}>Gestionar becas</Link>
+                <Link className="nav-link text-white" to={"/listar"}>Gestionar becas</Link>
             </li>
             </ul>
             <ul className="nav navbar-nav">
