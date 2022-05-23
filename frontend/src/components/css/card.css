@@ -1,10 +1,17 @@
-.card:hover {
-    box-shadow: 5px 10px 20px 1px rgb(110, 0, 0) !important;
+.becascard:hover {
+    box-shadow: 5px 10px 20px 1px rgb(24, 24, 24) !important;
     transition: all 0.7s linear;
   }
 
 .cardHeight{
   height: 100% !important;
+}
+.cardbackgroundcolor{
+  background-color: #000000 !important;
+}
+.cardbackgroundcolor2{
+  background-color: #7c7c7c00 !important;
+  text-align: center;
 }
 
 /* .overflow {

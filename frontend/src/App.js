@@ -31,7 +31,7 @@ function App() {
 
       (token['mytoken'] ? (  
         <Router>    
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <nav className="navbar navbar-expand navbar-dark text-white  navbar-custom" >
         <ul className="nav navbar-nav mx-auto">
             <li className="nav-item">
                 <Link className="nav-link" to={"/inicio"}>Inicio <span className="visually-hidden">(current)</span></Link>
@@ -39,8 +39,10 @@ function App() {
             <li className="nav-item active">
                 <Link className="nav-link" to={"/listar"}>Gestionar becas</Link>
             </li>
+            </ul>
+            <ul className="nav navbar-nav">
             <li className="nav-item active">
-                <a name="" id="" className="btn btn-danger" href="/login" role="button" onClick={logout}>Cerrar sesión</a>
+                <a name="" id="" className="btn btn-dark" href="/login" role="button" onClick={logout}>Cerrar sesión</a>
             </li>
         </ul>
       </nav>

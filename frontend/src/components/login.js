@@ -47,18 +47,17 @@ export default function Login(){
 
     return(
         <div>
-            <div className="container d-flex justify-content-center" >
-                
-                <div className="form">
+            <div className="container d-flex justify-content-center " >
+                <div className="form mt-5">
                 <div className="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg"/></div>               
                 <form className="login-form" onSubmit={handleSubmit}>
                     <input type="text" placeholder="Usuario" value={username} onChange={e => setUsername(e.target.value)}/>
                     <input type="password" placeholder="Contraseña" value={password} onChange={e => setPassword(e.target.value)}/>
                     <button type="submit">Iniciar sesión</button>
-                    <p className="message">¿No estas registrado?<a href="#"> Crea una cuenta</a></p>
+                    <p className="message">¿No estás registrado?<a href="#"> Crea una cuenta</a></p>
                 </form>
                 </div>
-                </div>  
+            </div>  
 
         </div>
 
