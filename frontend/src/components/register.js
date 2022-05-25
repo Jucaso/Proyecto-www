@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import {useCookies} from 'react-cookie';
 import { useNavigate } from "react-router-dom";
+import {useCookies} from 'react-cookie';
 import './css/login.css';
 
 export default function Register(){
     let navigate = useNavigate();
     const[username, setUsername] = useState("");
     const[password, setPassword] = useState("");
-    //const[token, setToken] = useCookies(['mytoken']);
+    const[token, setToken] = useCookies(['mytoken']);
     //const [isLogin, setLogin] = useState(false);
     
     useEffect(() => {
-        // console.log(token.mytoken)
-        // if(token.mytoken != undefined){
-        //     navigate('/inicio');
-        // }
-        // if(isLogin) {
-        //     navigate('/inicio');
-        //  }
+        if(token['mytoken']){
+            navigate('/');
+        }
     }, []);
 
     async function handleSubmit(e){

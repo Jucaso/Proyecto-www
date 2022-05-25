@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from "react-router-dom";
+
 import {useCookies} from 'react-cookie';
 
 
@@ -16,7 +17,12 @@ export default function Editar(){
     const[token] = useCookies(['mytoken']);
 
     useEffect(() => {
-        loadInfo();
+        if(token['mytoken']){
+            loadInfo();
+        }
+        else{
+            navigate('/');
+        }
     }, []);
 
     async function loadInfo(){

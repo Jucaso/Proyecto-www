@@ -7,6 +7,7 @@ import "./css/card.css"
 
 
 export default function BecaDetalle(){
+    let navigate = useNavigate();
     const {id} = useParams();
     const [nombre, setNombre] = useState("");
     const [categoria, setCategoria] = useState("");
@@ -17,7 +18,13 @@ export default function BecaDetalle(){
     const[token, setToken] = useCookies(['mytoken']);
 
     useEffect(() => {
-        loadInfo();
+        if(!token['mytoken']){
+            navigate('/');
+        }
+        else{
+            loadInfo();
+        }
+        
     }, []);
 
     async function loadInfo(){

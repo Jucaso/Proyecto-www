@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {useCookies} from 'react-cookie';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./css/card.css"
 import '../App.css';
 
 import {Carousel, Col, Row, Card, Spinner } from 'react-bootstrap';
 
 export default function Inicio(){
+    let navigate = useNavigate();
     const [becas, setBecas] = useState([]);
     const [noticias,setNoticias] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -14,8 +16,14 @@ export default function Inicio(){
 
     //loadData();
     useEffect(() => {
-        loadData();
-        loadData2();
+        if(token['mytoken']){
+            loadData();
+            loadData2();
+        }
+        else{
+            navigate('/');
+        }
+        
     }, []);
 
 function loadData(){

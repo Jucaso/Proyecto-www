@@ -18,7 +18,6 @@ function App() {
 
   useEffect(() => {
     if(token['mytoken']){
-      console.log("entra")
       setLogged(true);
     }
 

@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import {useCookies} from 'react-cookie';
+import { useNavigate } from "react-router-dom";
 
 export default function Inicio(){
+    let navigate = useNavigate();
     const [becas, setBecas] = useState([]);
     const[token] = useCookies(['mytoken']);
     //loadData();
     useEffect(() => {
-        loadData();
+        if(token['mytoken']){
+            loadData();
+        }
+        else{
+            navigate('/');
+        }
+        
     }, []);
 
     

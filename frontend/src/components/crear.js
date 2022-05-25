@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import {useCookies} from 'react-cookie';
 
@@ -14,6 +14,12 @@ export default function Crear(){
     const [requerimientos, setRequerimientos] = useState("");
     const[token] = useCookies(['mytoken']);
 
+    useEffect(() => {
+        if(!token['mytoken']){
+            navigate('/');
+        }
+        
+    }, []);
     // Handlers
     function handleChangeName(e) {  
         setNombre(e.target.value);      
