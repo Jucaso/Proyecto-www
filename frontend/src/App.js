@@ -5,6 +5,7 @@ import Editar from './components/editar';
 import Crear from './components/crear';
 import BecaDetalle from './components/becaDetalle';
 import Login from './components/login';
+import Register from './components/register';
 import { useCookies, removeCookie } from 'react-cookie';
 import { Route, Routes, Link, BrowserRouter as Router } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
@@ -55,6 +56,7 @@ function App() {
             <Route path="/editar/:id" element={<Editar/>}/>
             <Route path="/becaDetalle/:id" element={<BecaDetalle/>}/>
             <Route path="/" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
           </Routes>
         </div>
         </Router> 
@@ -69,6 +71,7 @@ function App() {
             <Route path="/editar/:id" element={<Editar/>}/>
             <Route path="/becaDetalle/:id" element={<BecaDetalle/>}/>
             <Route path="/" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
           </Routes>
         </div> 
         </Router> 
