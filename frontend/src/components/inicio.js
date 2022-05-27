@@ -108,7 +108,7 @@ return (
         <Card.Header>Sección de noticias</Card.Header>
             <Carousel className='CarouselX'>
             {noticias.map(noticia =>(
-                    <Carousel.Item className='ItemX' key={noticia.uri} interval={1800}>
+                    <Carousel.Item className='ItemX' key={noticia.uri} interval={2000}>
                         <a href={noticia.url} target="_blank">
                         <img
                         className="d-block w-100 h-50"   
