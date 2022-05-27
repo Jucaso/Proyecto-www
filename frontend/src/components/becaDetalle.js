@@ -51,14 +51,14 @@ export default function BecaDetalle(){
             <Card.Header className='cardbackgroundcolor text-center'>Información de la beca</Card.Header>
             <div className="row g-0">
                 <div className="col-md-4 mt-4">
-                <Card.Img className='cardwidth'  src="https://www.univalle.edu.co/media/k2/items/cache/f5b95525832f3712e665bb57dba370d3_M.jpg"/>
+                <Card.Img className='cardHeight'  src="https://www.univalle.edu.co/media/k2/items/cache/f5b95525832f3712e665bb57dba370d3_M.jpg"/>
                 </div>
                     <div className="col-md-8">
                     <Card.Body>
                         <ListGroup className="list-group-flush bg-transparent">
                         <ListGroupItem className='bg-transparent text-white fs-4 fw-bolder'>{nombre}</ListGroupItem>
                         <ListGroupItem className='bg-transparent text-white'>Categoría: {categoria} </ListGroupItem>
-                        <ListGroupItem className='bg-transparent text-white'>Finanicación: {financiacion}%</ListGroupItem>
+                        <ListGroupItem className='bg-transparent text-white'>Financiación: {financiacion}%</ListGroupItem>
                         <ListGroupItem className='bg-transparent text-white'>País: {pais}</ListGroupItem>
                         <ListGroupItem className='bg-transparent text-white'>Universidad: {universidad}</ListGroupItem>
                         <ListGroupItem className='bg-transparent text-white'>Requerimientos: {requerimientos}</ListGroupItem>

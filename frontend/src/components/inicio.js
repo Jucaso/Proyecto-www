@@ -35,7 +35,8 @@ function loadData(){
     .then(response => response.json()) // Solicita la información en formato json
     .then((data)=>{
         //console.log(data);
-        setBecas(data);
+        const ordenadas = data.sort((a,b) => b.financiacion.localeCompare(a.financiacion))
+        setBecas(ordenadas);
     }) // Especifica qué se hará con la información traida de la API (data)
     .catch(console.log) // Excepción en caso de fallo
 }
